@@ -26,4 +26,5 @@
 
 # 三、其它
 ## 项目查看方式
-&emsp;&emsp;使用Atom编辑与阅读，安装"Markdown Preview Plus"来显示Latex公式。
+- 线下阅读：使用Atom编辑与阅读，安装"Markdown Preview Plus"来显示Latex公式。
+- github线上阅读：chrome浏览器中安装MathJax插件来显示Latex公式，github地址： [下载](https://github.com/yazone/MathJax_Plugin_for_Github "MathJax Plugin for Github").
