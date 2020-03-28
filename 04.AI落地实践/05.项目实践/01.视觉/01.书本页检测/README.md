@@ -153,4 +153,4 @@ jni代码
 至此，部署的主要步骤已完毕。运行速度还是可以的。给自己star
 
 参考
-https://github.com/djh123/doc_D
+https://link.zhihu.com/?target=https%3A//github.com/djh123/doc_Detection
