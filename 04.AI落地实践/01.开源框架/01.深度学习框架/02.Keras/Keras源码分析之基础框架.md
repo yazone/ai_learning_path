@@ -1,12 +1,12 @@
 # Keras源码分析之基础框架
 
-##### 小小的摘要
+### 小小的摘要
   本小节主要对Keras整体的基础架构做一个简要介绍（ps:一丢丢个人理解）:
   1. Keras的源码文件的结构
   2. Keras构建模型的基础类之间的关系及作用
   3. Keras计算的基本流程
 
-#### 一、Keras的源码文件的结构
+### 一、Keras的源码文件的结构
 下面为Keras源码文件的主要结构：
 ```
 |-- docs                      #说明文档
@@ -44,7 +44,8 @@
  3. 实现训练模型配置与建模的Model类---training.py
 
 
- ####二、Keras构建模型的基础类之间的关系及作用
+### 二、Keras构建模型的基础类之间的关系及作用
+
  基础类之间的关系及作用如下：
  ```
 |-- Layer:计算层的抽象，完成网络中对Tensor的计算过程
@@ -55,7 +56,7 @@
 |-- Node:描述两个层之间连接关系的抽象，配合Layer()构建DAG；
  ```
 
-##### class Layer(object)
+#### class Layer(object)
 Layer是计算层的抽象，其主要的处理逻辑是，给定输入，产生输出。因为各种layer作用的不同，所以在些基类中无法做具体实现，它们的具体功能留待各种子类去实现。
 
 Layer类主要的成员变量和成员函数如下：
@@ -115,7 +116,7 @@ outbound_layer._inbound_nodes.append(self)
 **因此，Node类负责layer拓扑的连接，用来构建DAG图。**
 
 
-##### class Network(Layer)
+#### class Network(Layer)
 
 首先，要说明的是，它为什么要继承自Layer，应该有这样几点：
 1. 因为它要生成一个有向无环图（DAG），有入口也有出口，有输入也有输出，这一点跟Layer是一致的；
@@ -183,7 +184,7 @@ def run_internal_graph(self, inputs, masks=None):
 
 ```
 
-##### class Model(Network)
+#### class Model(Network)
 
 Model类是与用户距离最近的接口，它继承自Network，是对Network进一步封装。
 Model有四大功能：
@@ -263,7 +264,7 @@ for layer in model.layers:#继承Network的成员变量
 
 ```
 
-##### 小小的总结
+### 小小的总结
 在文章上面，主要讲述了Keras整体的基础框架的，讲述脉络从基础层Layer-->拓扑构建Network-->训练配置Model来介绍。
 主要目标是为了能让胖友对下面的框架，有个初步的认识。
  ```
@@ -279,7 +280,7 @@ for layer in model.layers:#继承Network的成员变量
 
 当然很都是我个人粗浅理解，有问题请指正。
 
-##### Reference
+### Reference
 [彗双智能：机器学习与大数据](http://wangbn.blogspot.com/2019/01/keras-network.html)
 
 [[源码笔记]keras源码分析之Layer、Tensor和Node](https://blog.ddlee.cn/posts/4943e1b8/)
